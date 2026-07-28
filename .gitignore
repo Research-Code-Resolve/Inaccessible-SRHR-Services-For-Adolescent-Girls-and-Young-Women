@@ -1,0 +1,36 @@
+# Node (frontend)
+node_modules/
+.next/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+
+# Python (backend, data-ml)
+__pycache__/
+*.py[cod]
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Data / ML artifacts
+data-ml/*.csv
+data-ml/models/
+data-ml/*.pkl
+*.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
+
+# Secrets — never commit these
+*.env
+secrets.json
+credentials.json
