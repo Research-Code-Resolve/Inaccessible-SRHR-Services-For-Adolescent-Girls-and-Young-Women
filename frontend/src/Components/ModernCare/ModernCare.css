@@ -1,0 +1,223 @@
+.modern-care{
+
+    padding:120px 0;
+
+    background:#FCFBFF;
+}
+
+.modern-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+/* Image */
+
+.modern-image{
+
+    position:relative;
+}
+
+.modern-image img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+
+/* Floating Card */
+
+.verified-card{
+
+    position:absolute;
+
+    right:-20px;
+
+    bottom:40px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    width:320px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+}
+
+.verified-card svg{
+
+    font-size:35px;
+
+    color:#6C63FF;
+}
+
+.verified-card h4{
+
+    margin-bottom:5px;
+}
+
+.verified-card p{
+
+    color:#777;
+
+    font-size:14px;
+}
+
+/* Right */
+
+.modern-content h2{
+
+    font-size:50px;
+
+    margin:25px 0;
+
+    line-height:1.2;
+}
+
+.modern-content h2 span{
+
+    color:#6C63FF;
+}
+
+.modern-content p{
+
+    color:#666;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+    font-size:17px;
+}
+
+/* Checklist */
+
+.care-list{
+
+    display:grid;
+
+    gap:18px;
+
+    margin-bottom:40px;
+}
+
+.care-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-weight:600;
+}
+
+.care-item svg{
+
+    color:#6C63FF;
+}
+
+/* Statistics */
+
+.stats{
+
+    display:flex;
+
+    gap:25px;
+}
+
+.stat-card{
+
+    flex:1;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.stat-card svg{
+
+    font-size:34px;
+
+    color:#6C63FF;
+
+    margin-bottom:15px;
+}
+
+.stat-card h3{
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+.stat-card span{
+
+    color:#777;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.modern-container{
+
+grid-template-columns:1fr;
+
+}
+
+.modern-content{
+
+text-align:center;
+
+}
+
+.stats{
+
+flex-direction:column;
+
+}
+
+.verified-card{
+
+position:relative;
+
+right:0;
+
+bottom:0;
+
+width:100%;
+
+margin-top:20px;
+
+}
+
+}
