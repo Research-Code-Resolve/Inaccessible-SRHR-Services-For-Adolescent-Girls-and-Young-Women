@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from providers.views import providerViewSet
+from providers.views import ProviderViewSet
 
 router = DefaultRouter () # Instantiates the DefaultRouter. The parentheses() ensures it is created propery as an object
-router.register(r'providers', providerViewSet, basename='providers') #Define url prefix for the resource, Link the viewset that handles the ;logic for these routes, Sets the internal base name DRF uses to name the auto-generated URL routes
+router.register(r'providers', ProviderViewSet, basename='providers') #Define url prefix for the resource, Link the viewset that handles the ;logic for these routes, Sets the internal base name DRF uses to name the auto-generated URL routes
 
 
 urlpatterns = [
