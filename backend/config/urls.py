@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/accounts/', include('accounts.urls')),
     path('api/triage/', include('triage.urls')),
+    path('api/support/', include('support.urls')),
 ]
