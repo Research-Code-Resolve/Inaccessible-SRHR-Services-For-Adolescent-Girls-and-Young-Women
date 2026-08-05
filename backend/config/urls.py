@@ -29,4 +29,5 @@ urlpatterns = [
     path('api/accounts/', include('accounts.urls')),
     path('api/triage/', include('triage.urls')),
     path('api/support/', include('support.urls')),
+    path('api/followup/', include('followup.urls')),
 ]
