@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'providers',
     'triage',
     'support',
+    'followup',
 
 ]
 
