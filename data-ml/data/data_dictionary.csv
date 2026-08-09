@@ -1,0 +1,24 @@
+column,type,meaning
+participant_id,identifier,"P01-P12, one per interviewee (not a feature)"
+city,text,"always Nairobi - every participant lives in the city"
+neighborhood,text,"the estate inside Nairobi: Buruburu, Embakasi, Kibera, Kileleshwa, Langata"
+neighborhood_code,categorical,0=Buruburu 1=Embakasi 2=Kibera 3=Kileleshwa 4=Langata
+age,numeric,age in years
+in_school,binary,"1=yes, 0=no"
+first_info_source_code,categorical,0=AI 1=Family 2=Social media 3=Peers 4=Clinic 5=Online 6=Chemist
+main_trusted_source_code,categorical,same codes as first_info_source_code
+uses_ai,binary,"1=mentions using AI tools, 0=no (true for only 1 of 12 - not used in any finding)"
+trusts_clinic_ord,ordinal,0=low 1=medium 2=high -1=unknown
+trusts_social_media_ord,ordinal,0=low 1=medium 2=high -1=unknown (unknown for 9 of 12 - not used in any finding)
+barrier_stigma,binary,raised stigma / fear of judgment
+barrier_cost,binary,"raised cost - the service, the clinic card, or the fare"
+barrier_religion,binary,"raised a religious teaching or rule (label: Religious teaching)"
+barrier_provider_judgment,binary,a nurse or doctor shamed or dismissed her
+barrier_distance_rural,binary,"where you live changes the care you get (label: Distance / unequal access) - legacy column name"
+barrier_low_awareness,binary,raised low awareness / not knowing what exists
+barrier_count,numeric,"sum of the 6 barrier flags (0-6), derived"
+service_stigma_aware,binary,aware stigma differs by service type
+wants_comprehensive_sex_ed,binary,asked for comprehensive sex ed
+privacy_secrecy_concern,binary,raised privacy / secrecy
+personally_experienced_difficulty,binary,"1=yes, 0=no"
+digital_first_source,binary,"1=first source is AI/social media/online, else 0 (derived)"
