@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'providers',
     'education',
     'appointments',
+    'tracker',
     
 ]
 
