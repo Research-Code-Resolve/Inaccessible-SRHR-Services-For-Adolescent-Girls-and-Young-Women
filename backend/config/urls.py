@@ -26,4 +26,8 @@ router.register(r'providers', ProviderViewSet, basename='providers') #Define url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/education/', include('education.urls')),
+    path('api/appointments/', include('appointments.urls')),
+    path('api/tracker/', include('tracker.urls')),
+    path('api/emergency/', include('emergency.urls')),
 ]
