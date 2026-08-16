@@ -1,0 +1,135 @@
+/* =========================================
+   Lesson Cards
+========================================= */
+
+.lesson-section{
+
+    background:white;
+
+    border:1px solid var(--border-color);
+
+    border-radius:6px;
+
+    padding:16px;
+
+    margin-bottom:20px;
+
+}
+
+/* =========================================
+   Headings
+========================================= */
+
+.lesson-section h3{
+
+    margin:0 0 12px;
+
+    color:var(--text-color);
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+/* =========================================
+   Paragraph
+========================================= */
+
+.lesson-section p{
+
+    margin:0;
+
+    color:var(--text-secondary);
+
+    line-height:1.7;
+
+}
+
+/* =========================================
+   Lists
+========================================= */
+
+.lesson-section ul{
+
+    margin:10px 0 0;
+
+    padding-left:20px;
+
+}
+
+.lesson-section li{
+
+    margin-bottom:10px;
+
+    color:var(--text-secondary);
+
+    line-height:1.6;
+
+}
+
+/* =========================================
+   Bold Text
+========================================= */
+
+.lesson-section strong{
+
+    color:var(--text-color);
+
+    font-weight:700;
+
+}
+
+/* =========================================
+   Warning Box
+========================================= */
+
+.warning-box{
+
+    border:1px solid var(--danger-color);
+
+}
+
+.warning-box h3{
+
+    color:var(--danger-color);
+
+}
+
+/* =========================================
+   Links
+========================================= */
+
+.lesson-section a{
+
+    color:var(--primary-color);
+
+    text-decoration:none;
+
+}
+
+.lesson-section a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media(max-width:375px){
+
+    .lesson-section{
+
+        padding:14px;
+
+    }
+
+    .lesson-section h3{
+
+        font-size:17px;
+
+    }
+
+}

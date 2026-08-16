@@ -1,0 +1,382 @@
+/* ===================================
+   VALECARE GLOBAL STYLES
+=================================== */
+
+:root{
+
+    /* COLORS */
+
+    --primary-color:#0B6E4F;
+    --primary-hover:#095740;
+
+    --background-color:#F5F5F5;
+    --surface-color:#FFFFFF;
+
+    --text-color:#222222;
+    --secondary-text:#666666;
+
+    --border-color:#DDDDDD;
+
+    --danger-color:#C62828;
+
+    /* SIZES */
+
+    --radius:6px;
+
+    --spacing:16px;
+
+}
+
+/* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    font-size:16px;
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:var(--background-color);
+
+    color:var(--text-color);
+
+    min-width:320px;
+
+    overflow-x:hidden;
+}
+
+/* ===================================
+   APP CONTAINER
+=================================== */
+
+#root{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+}
+
+/* ===================================
+   MOBILE APP
+=================================== */
+
+.app{
+
+    width:100%;
+
+    max-width:375px;
+
+    min-height:100vh;
+
+    background:var(--surface-color);
+
+    border-left:1px solid var(--border-color);
+
+    border-right:1px solid var(--border-color);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* ===================================
+   PAGE
+=================================== */
+
+.page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+/* ===================================
+   CENTER
+=================================== */
+
+.center{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ===================================
+   HEADINGS
+=================================== */
+
+h1{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+    color:var(--primary-color);
+
+}
+
+h2{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+h3{
+
+    font-size:18px;
+
+}
+
+/* ===================================
+   TEXT
+=================================== */
+
+p{
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    color:var(--secondary-text);
+
+}
+
+/* ===================================
+   LINKS
+=================================== */
+
+a{
+
+    text-decoration:none;
+
+    color:var(--primary-color);
+
+}
+
+a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===================================
+   LABELS
+=================================== */
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+
+}
+
+/* ===================================
+   INPUTS
+=================================== */
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:6px;
+
+    font-size:16px;
+
+}
+
+input:focus{
+
+    outline:none;
+
+    border-color:var(--primary-color);
+
+}
+
+/* ===================================
+   BUTTONS
+=================================== */
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    background:var(--primary-color);
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+button:hover{
+
+    background:var(--primary-hover);
+
+}
+
+/* ===================================
+   SECONDARY BUTTON
+=================================== */
+
+.secondary-btn{
+
+    background:white;
+
+    color:var(--primary-color);
+
+    border:1px solid var(--primary-color);
+
+}
+
+.secondary-btn:hover{
+
+    background:var(--primary-color);
+
+    color:white;
+
+}
+
+/* ===================================
+   DANGER BUTTON
+=================================== */
+
+.danger-btn{
+
+    background:var(--danger-color);
+
+}
+
+/* ===================================
+   CARD
+=================================== */
+
+.card{
+
+    width:100%;
+
+    background:white;
+
+    border:1px solid var(--border-color);
+
+    border-radius:6px;
+
+    padding:16px;
+
+}
+
+/* ===================================
+   MODULE BUTTON
+=================================== */
+
+.module-btn{
+
+    text-align:left;
+
+    background:white;
+
+    color:var(--text-color);
+
+    border:1px solid var(--border-color);
+
+}
+
+.module-btn:hover{
+
+    background:#f8f8f8;
+
+}
+
+/* ===================================
+   SEARCH BAR
+=================================== */
+
+.search-bar{
+
+    width:100%;
+
+    margin:20px 0;
+
+}
+
+/* ===================================
+   IMAGES
+=================================== */
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* ===================================
+   TABLETS & DESKTOP
+=================================== */
+
+@media (min-width:768px){
+
+    .app{
+
+        margin:20px auto;
+
+        border:1px solid var(--border-color);
+        .error-message{
+
+    color:var(--danger-color);
+
+    font-size:14px;
+
+    margin:15px 0;
+
+}
+
+    }
+
+}

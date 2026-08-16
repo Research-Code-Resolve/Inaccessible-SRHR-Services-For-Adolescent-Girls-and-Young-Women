@@ -1,0 +1,55 @@
+.consultation-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.consultation-form label{
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+.consultation-form input,
+
+.consultation-form select,
+
+.consultation-form textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:6px;
+
+    font-size:15px;
+
+    background:white;
+
+    outline:none;
+
+}
+
+.consultation-form input:focus,
+
+.consultation-form select:focus,
+
+.consultation-form textarea:focus{
+
+    border-color:var(--primary-color);
+
+}
+
+.consultation-form textarea{
+
+    resize:none;
+
+}
