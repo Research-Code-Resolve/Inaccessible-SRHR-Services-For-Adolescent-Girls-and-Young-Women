@@ -1,0 +1,47 @@
+statement_id,source,speaker,theme_label,statement_text
+S01,IDI,Hope,stigma,Community assumes girls seeking SRHR want sex only
+S02,IDI,Hope,provider_judgment,Nurse shamed her: opening your legs instead of your books
+S03,IDI,Hope,info_source_ai,Girls prefer anonymous AI tools over family or health workers
+S04,IDI,Hope,distance_inequality,Kibera girls dismissed; Muthaiga girls get fast good care
+S05,IDI,Hope,comprehensive_sex_ed,Needs comprehensive sex ed not abstinence only
+S06,IDI,Johari,info_source_family,Seeks guidance from mother and aunts; lower judgment than clinics
+S07,IDI,Johari,service_stigma_gradient,Contraception attracts more criticism than counselling
+S08,IDI,Cindy,provider_judgment,Provider behaviour and confidentiality change faster than culture
+S09,IDI,Cindy,privacy_secrecy,Secrecy passed down in families is its own harm
+S10,IDI,Konana,cost,Financial constraints are a major barrier
+S11,IDI,Konana,religion,Islam access restricted by gender of the provider
+S12,IDI,Lurit,stigma,Massive stigma brings fear; girls hesitant to seek services
+S13,IDI,Lurit,distance_rural,In rural areas the services are inaccessible
+S14,IDI,P06,provider_judgment,Some doctors judge underage girls and dont listen
+S15,IDI,P06,stigma,The family will judge you and tell you to go back where you came from
+S16,IDI,P06,info_source_clinic,Mostly I take myself to the clinic or hospital and ask
+S17,IDI,P07,stigma,If a woman seeks these services they call you a prostitute
+S18,IDI,P07,provider_judgment,The nurse said even you when a girl went for a pregnancy test
+S19,IDI,P07,info_source_online,Mostly I go to Google; it will not judge me and there is privacy
+S20,IDI,P07,privacy_secrecy,The local nurse might be your neighbour and tell everyone
+S21,IDI,P08,info_source_online,I read validated medical books online from certified sources
+S22,IDI,P08,low_awareness,Many are not aware these services exist or that they cost so much
+S23,IDI,P08,unsafe_abortion,A classmate had an unsafe abortion and dropped out of her course
+S24,IDI,P09,info_source_peers,I go to my peers first; we are the same age so we wont judge
+S25,IDI,P09,cost,Their poor background and ignorance make it difficult
+S26,IDI,P10,privacy_secrecy,By evening the whole neighbourhood will know you went for family planning
+S27,IDI,P10,provider_judgment,"They lecture you: you are so young, where is your husband"
+S28,IDI,P10,cost,Even if the service is free you need money for a card or transport
+S29,IDI,P10,distance_inequality,Girls in Westlands pay private hospitals; here poverty exposes you
+S30,IDI,P11,beliefs_traditional,Beliefs that women give birth at home with witch doctors instil fear
+S31,IDI,P11,service_stigma_gradient,A lot of judgment if you look for family planning as a young girl
+S32,IDI,P11,info_source_social_media,We seek help from social media and trusted friends
+S33,IDI,P12,info_source_chemist,We visit the chemist because we fear hospitals will ask for more money
+S34,IDI,P12,stigma,They are afraid of humiliation and of knowing their status
+S35,FGD,group,belief_behavior_gap,Value preventive care but only seek help once symptomatic
+S36,FGD,group,low_awareness,SRHR misunderstood as synonymous with sexual activity
+S37,FGD,group,provider_judgment,UTI misdiagnosed as an STI; reproductive issues assumed sexual
+S38,FGD,group,fgm_harm,FGM complications cause shame that discourages care seeking
+S39,FGD,group,religion,Religious teaching discourages contraception
+S40,FGD,group,info_source_ai,Relies on AI more than a sibling but AI can be manipulated
+S41,FGD,group,info_source_social_media,Online communities lower the barrier to learning
+S42,FGD,group,service_stigma_gradient,Stigma highest for HIV testing then contraception then counselling
+S43,FGD,group,stigma,Contraceptive implants labelled immoral; pads wrapped in newspaper
+S44,FGD,group,male_exclusion,Boys left out of education and judged for buying condoms
+S45,FGD,group,distance_rural,Pastoralist and some Muslim communities face compounded barriers
+S46,FGD,group,privacy_secrecy,Felt safer in a group than one on one with an unfamiliar provider

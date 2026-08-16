@@ -1,0 +1,71 @@
+.dashboard-page{
+
+    min-height:100vh;
+
+    background:var(--background-color);
+
+}
+
+.dashboard-content{
+
+    padding:20px;
+
+    padding-bottom:90px;
+
+}
+
+.dashboard-welcome{
+
+    margin-bottom:25px;
+
+}
+
+.dashboard-welcome h2{
+
+    margin:0;
+
+    color:var(--text-color);
+
+}
+
+.dashboard-welcome p{
+
+    margin-top:6px;
+
+    color:var(--text-secondary);
+
+    font-size:17px;
+
+}
+
+.dashboard-section{
+
+    margin-top:40px;
+
+}
+
+.section-title{
+
+    margin-bottom:18px;
+
+    color:var(--primary-color);
+
+    font-size:18px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.module-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
