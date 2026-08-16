@@ -36,3 +36,4 @@ urlpatterns = [
     path('api/support/', include('support.urls')),
     path('api/emergency/', include('emergency.urls')),
 ]
+

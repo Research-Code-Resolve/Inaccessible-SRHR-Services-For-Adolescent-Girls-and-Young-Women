@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'emergency',
     'accounts',
     'triage',
+    'support',
+    'followup',
 
 ]
 
