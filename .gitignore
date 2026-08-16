@@ -18,6 +18,9 @@ env/
 *.egg-info/
 .pytest_cache/
 
+# Django local database (each dev/environment keeps its own)
+*.sqlite3
+
 # Data / ML artifacts
 data-ml/*.csv
 data-ml/models/
