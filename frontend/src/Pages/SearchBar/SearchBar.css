@@ -1,0 +1,19 @@
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:100%;
+
+    background:white;
+
+    color:var(--secondary-text);
+
+    border:1px solid var(--border-color);
+
+    text-align:left;
+
+}

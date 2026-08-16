@@ -1,0 +1,139 @@
+.welcome-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    min-height:100vh;
+
+}
+
+.welcome-content{
+
+    text-align:center;
+
+}
+
+.welcome-logo{
+
+    width:110px;
+
+    height:110px;
+
+    margin:20px auto;
+
+    display:block;
+
+    object-fit:contain;
+
+}
+
+.welcome-description{
+
+    margin:15px 0 25px;
+
+}
+
+.privacy-card{
+
+    text-align:left;
+
+    margin-bottom:25px;
+
+}
+
+.privacy-card h3{
+
+    color:var(--primary-color);
+
+    margin-bottom:12px;
+
+}
+
+.privacy-card p{
+
+    margin-bottom:12px;
+
+}
+
+.trust-items{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin:18px 0;
+
+    color:var(--primary-color);
+
+    font-weight:bold;
+
+}
+
+.learn-more{
+
+    display:inline-block;
+
+    margin-top:5px;
+
+    font-weight:bold;
+
+}
+
+.welcome-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.login-text{
+
+    text-align:center;
+
+}
+
+.login-text span{
+
+    color:var(--primary-color);
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-left:6px;
+
+}
+
+.login-text span:hover{
+
+    text-decoration:underline;
+
+}
+
+.welcome-footer{
+
+    margin-top:25px;
+
+    padding-top:15px;
+
+    border-top:1px solid var(--border-color);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:14px;
+
+}

@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'accounts',
     'triage',
 
-
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
