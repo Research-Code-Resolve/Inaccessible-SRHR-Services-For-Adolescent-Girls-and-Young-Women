@@ -1,0 +1,10 @@
+/* Basic input styles to ensure label is above the input */
+.input-group{display:flex;flex-direction:column;gap:6px;width:100%}
+.input-label{font-size:15px;font-weight:600;color:var(--text)}
+.input-field{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px}
+.input-field:focus{border-color:var(--primary);outline:none}
+.required{color:var(--danger);margin-left:6px}
+
+.input-label + .input-field{margin-top:4px}
+
+@media(max-width:480px){.input-field{padding:12px}}

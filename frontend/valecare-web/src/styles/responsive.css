@@ -1,0 +1,59 @@
+/* Desktop */
+
+.container{
+
+width:90%;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+/* Laptop */
+
+@media(max-width:1200px){
+
+.container{
+
+width:95%;
+
+}
+
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+.container{
+
+width:94%;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.container{
+
+width:92%;
+
+}
+
+}
+
+/* Small Phones */
+
+@media(max-width:480px){
+
+.container{
+
+width:95%;
+
+}
+
+}

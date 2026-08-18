@@ -1,0 +1,116 @@
+.sti-prevention-care-page {
+  min-height: 100vh;
+  padding: 20px;
+  background: #f8f8f8;
+}
+
+.back-button {
+  border: none;
+  background: none;
+  color: #0b6e4f;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.lessons-header {
+  margin-bottom: 28px;
+}
+
+.lessons-header h1 {
+  margin: 0 0 10px;
+  color: #222222;
+  font-size: 28px;
+}
+
+.lessons-header p {
+  margin: 0;
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.lessons-section {
+  margin-top: 10px;
+}
+
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lesson-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+
+  color: #222222;
+  font-size: 16px;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.lesson-card:hover {
+  border-color: #0b6e4f;
+  color: #0b6e4f;
+}
+
+.lesson-arrow {
+  color: #0b6e4f;
+  font-size: 20px;
+}
+
+.lesson-content {
+  max-width: 700px;
+}
+
+.lesson-content h1 {
+  margin: 0 0 28px;
+  color: #222222;
+  font-size: 26px;
+}
+
+.lesson-section {
+  margin-bottom: 28px;
+}
+
+.lesson-section h2 {
+  margin: 0 0 10px;
+  color: #222222;
+  font-size: 19px;
+}
+
+.lesson-section p {
+  margin: 0;
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.lesson-section ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #666666;
+}
+
+.lesson-section li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (min-width: 600px) {
+  .menstrual-lessons-page {
+    padding: 32px;
+  }
+}

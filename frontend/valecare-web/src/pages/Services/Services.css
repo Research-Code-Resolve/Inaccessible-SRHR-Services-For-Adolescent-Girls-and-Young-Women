@@ -1,0 +1,217 @@
+/* ==========================================
+   SERVICES PAGE
+========================================== */
+
+.services-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #F8F8F8;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 10px;
+
+  color: #0B6E4F;
+  text-decoration: none;
+
+  font-size: 22px;
+}
+
+.back-button:hover {
+  background: #F5F5F5;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #0B6E4F;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   SERVICES LIST
+========================================== */
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==========================================
+   SERVICE CARD
+========================================== */
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+  padding: 22px;
+
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 12px;
+
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.service-card:hover {
+  border-color: #0B6E4F;
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.service-icon {
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #EAF7F1;
+  border-radius: 50%;
+
+  color: #0B6E4F;
+  font-size: 23px;
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.service-content {
+  flex: 1;
+}
+
+.service-content h2 {
+  margin: 0 0 7px;
+
+  color: #222222;
+  font-size: 1.15rem;
+}
+
+.service-content p {
+  margin: 0;
+
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   ARROW
+========================================== */
+
+.service-arrow {
+  flex-shrink: 0;
+
+  color: #0B6E4F;
+  font-size: 22px;
+}
+
+/* ==========================================
+   EMERGENCY RESPONSE
+========================================== */
+
+.emergency-service {
+  border-color: #DDDDDD;
+}
+
+.emergency-icon {
+  background: #FDECEC;
+  color: #C62828;
+}
+
+.emergency-service .service-arrow {
+  color: #C62828;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 768px) {
+
+  .services-page {
+    padding: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+  .services-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    gap: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .service-card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .service-content h2 {
+    font-size: 1rem;
+  }
+
+  .service-content p {
+    font-size: 0.9rem;
+  }
+
+  .service-arrow {
+    font-size: 19px;
+  }
+
+}

@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap");
+
+.menstrual-hub-page {
+  --clr-bg: #f6f4ef;
+  --clr-surface: #ffffff;
+  --clr-border: #e3dfd5;
+  --clr-primary: #163832;
+  --clr-primary-light: #2f6358;
+  --clr-primary-dark: #0e2622;
+  --clr-accent: #c68a3a;
+  --clr-accent-dark: #a9722c;
+  --clr-text: #1e2422;
+  --clr-muted: #5c6863;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --shadow-md: 0 12px 32px -12px rgba(14, 38, 34, 0.22);
+
+  min-height: 100vh;
+  padding: 32px;
+  background: var(--clr-bg);
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.menstrual-hub-page * {
+  box-sizing: border-box;
+}
+
+.menstrual-hub-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hub-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface);
+  color: var(--clr-primary);
+  font-size: 16px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.back-button:hover {
+  background: rgba(22, 56, 50, 0.06);
+  border-color: var(--clr-primary-light);
+}
+
+.hub-header h1 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--clr-primary-dark);
+}
+
+.hub-header p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--clr-muted);
+}
+
+.hub-grid {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.hub-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 26px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.hub-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: rgba(198, 138, 58, 0.14);
+  color: var(--clr-accent-dark);
+  font-size: 19px;
+}
+
+.hub-card-content h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--clr-text);
+}
+
+.hub-card-content p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--clr-muted);
+  padding-right: 20px;
+}
+
+.hub-card-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: var(--clr-primary-light);
+  font-size: 16px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.hub-card:hover .hub-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 480px) {
+  .menstrual-hub-page {
+    padding: 20px;
+  }
+
+  .hub-header {
+    align-items: flex-start;
+  }
+}

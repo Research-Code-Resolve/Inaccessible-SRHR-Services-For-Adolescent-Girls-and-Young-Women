@@ -1,0 +1,95 @@
+:root{
+
+/* =====================
+   COLORS
+====================== */
+
+--primary:#0B6E4F;
+--primary-hover:#095740;
+
+--secondary:#4CAF50;
+
+--white:#FFFFFF;
+
+--background:#F8F8F8;
+
+--card:#FFFFFF;
+
+--border:#DDDDDD;
+
+--text:#222222;
+
+--text-light:#666666;
+
+--danger:#C62828;
+
+--success:#2E7D32;
+
+--warning:#ED6C02;
+
+--info:#0288D1;
+
+
+/* =====================
+   TYPOGRAPHY
+====================== */
+
+--font-family:'Inter',sans-serif;
+
+--heading-1:48px;
+
+--heading-2:38px;
+
+--heading-3:28px;
+
+--heading-4:22px;
+
+--body:16px;
+
+--small:14px;
+
+
+/* =====================
+   SPACING
+====================== */
+
+--space-xs:8px;
+
+--space-sm:12px;
+
+--space-md:20px;
+
+--space-lg:32px;
+
+--space-xl:48px;
+
+--space-2xl:64px;
+
+
+/* =====================
+   BORDER RADIUS
+====================== */
+
+--radius-sm:8px;
+
+--radius-md:12px;
+
+--radius-lg:20px;
+
+--radius-round:50%;
+
+
+/* =====================
+   SHADOWS
+====================== */
+
+--shadow:none;
+
+
+/* =====================
+   TRANSITIONS
+====================== */
+
+--transition:0.3s ease;
+
+}

@@ -1,0 +1,177 @@
+/* ==========================================
+   BUTTON
+========================================== */
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 10px 20px;
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* ==========================================
+   PRIMARY
+   Create Account
+========================================== */
+
+.button-primary {
+  background: #0b6e4f;
+
+  color: #ffffff;
+
+  border-color: #0b6e4f;
+}
+
+
+.button-primary:hover {
+  background: #095740;
+
+  color: #ffffff;
+
+  border-color: #095740;
+}
+
+
+/* ==========================================
+   SECONDARY
+   Continue as Guest
+========================================== */
+
+.button-secondary {
+  background: #ffffff;
+
+  color: #0b6e4f;
+
+  border-color: #0b6e4f;
+}
+
+
+.button-secondary:hover {
+  background: #eaf7f1;
+
+  color: #095740;
+
+  border-color: #095740;
+}
+
+
+/* ==========================================
+   DISABLED
+========================================== */
+
+.button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}/* ==========================================
+   BUTTON
+========================================== */
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 10px 20px;
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* ==========================================
+   PRIMARY
+   Create Account
+========================================== */
+
+.button-primary {
+  background: #0b6e4f;
+
+  color: #ffffff;
+
+  border-color: #0b6e4f;
+}
+
+
+.button-primary:hover {
+  background: #095740;
+
+  color: #ffffff;
+
+  border-color: #095740;
+}
+
+
+/* ==========================================
+   SECONDARY
+   Continue as Guest
+========================================== */
+
+.button-secondary {
+  background: #ffffff;
+
+  color: #0b6e4f;
+
+  border-color: #0b6e4f;
+}
+
+
+.button-secondary:hover {
+  background: #eaf7f1;
+
+  color: #095740;
+
+  border-color: #095740;
+}
+
+
+/* ==========================================
+   DISABLED
+========================================== */
+
+.button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}

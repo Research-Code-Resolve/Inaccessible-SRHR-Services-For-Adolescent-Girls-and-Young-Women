@@ -1,0 +1,256 @@
+/* ==========================================
+   VIDEO CONSULTATION PAGE
+========================================== */
+
+.video-page {
+  padding: 30px;
+  min-height: 100vh;
+  background: #F8F8F8;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.back-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: #FFFFFF;
+
+  text-decoration: none;
+  color: var(--primary);
+
+  font-size: 22px;
+}
+
+.back-button:hover {
+  background: #F5F5F5;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ==========================================
+   MAIN CARD
+========================================== */
+
+.video-card {
+  max-width: 700px;
+  margin: auto;
+
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 35px;
+
+  text-align: center;
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.video-icon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #EAF7F1;
+  color: var(--primary);
+
+  font-size: 36px;
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.video-card h2 {
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.video-card p {
+  color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   COMING SOON
+========================================== */
+
+.coming-soon {
+  margin: 30px 0;
+  padding: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: #FAFAFA;
+}
+
+.coming-soon h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* ==========================================
+   FEATURE LIST
+========================================== */
+
+.feature-list {
+  margin: 30px 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--text);
+}
+
+.feature-item svg {
+  color: var(--primary);
+  font-size: 18px;
+}
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 20px 0 30px;
+
+  padding: 10px 16px;
+
+  border: 1px solid var(--border);
+  border-radius: 30px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #F9A825;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.back-consultation {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  background: var(--primary);
+  color: #FFFFFF;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  border-radius: 8px;
+}
+
+.back-consultation:hover {
+  background: var(--primary-hover);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 768px) {
+
+  .video-page {
+    padding: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .video-card {
+    padding: 25px;
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+  .video-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .video-card {
+    padding: 20px;
+  }
+
+  .video-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 28px;
+  }
+
+  .feature-item {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .back-consultation {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+}

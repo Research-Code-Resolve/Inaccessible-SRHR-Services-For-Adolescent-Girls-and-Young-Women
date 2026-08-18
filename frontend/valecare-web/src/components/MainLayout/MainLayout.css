@@ -1,0 +1,78 @@
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.main-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+
+/* ==========================================
+   SIDEBAR AREA
+========================================== */
+
+.main-sidebar {
+  width: 260px;
+  min-width: 260px;
+  min-height: 100vh;
+
+  background: #ffffff;
+  border-right: 1px solid #dddddd;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+
+  background: #f8f8f8;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+  .main-sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .main-layout {
+    display: block;
+  }
+
+  .main-sidebar {
+    width: 100%;
+    min-width: 100%;
+    min-height: auto;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+}

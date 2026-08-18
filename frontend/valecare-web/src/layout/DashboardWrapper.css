@@ -1,0 +1,93 @@
+/* ==========================================
+   DASHBOARD WRAPPER
+========================================== */
+
+.dashboard-wrapper {
+  display: flex;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #f8f8f8;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.dashboard-sidebar {
+  width: 260px;
+
+  min-width: 260px;
+
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  border-right: 1px solid #dddddd;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   MAIN DASHBOARD
+========================================== */
+
+.dashboard-main {
+  flex: 1;
+
+  min-width: 0;
+
+  min-height: 100vh;
+
+  background: #f8f8f8;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .dashboard-sidebar {
+    width: 220px;
+
+    min-width: 220px;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .dashboard-wrapper {
+    display: block;
+  }
+
+
+  .dashboard-sidebar {
+    width: 100%;
+
+    min-width: 100%;
+
+    min-height: auto;
+  }
+
+
+  .dashboard-main {
+    width: 100%;
+  }
+
+}

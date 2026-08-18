@@ -1,0 +1,167 @@
+.notif-page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #333;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #1fa971;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #2b2b2b;
+}
+
+.notif-badge {
+  background-color: #e0523f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.notif-mark-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 16px auto;
+  background: none;
+  border: none;
+  color: #1fa971;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notif-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.notif-card.unread {
+  background-color: #f3fbf6;
+}
+
+.notif-card:hover {
+  background-color: #eef7f2;
+}
+
+.notif-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.notif-icon.reminder {
+  background-color: #1fa971;
+}
+
+.notif-icon.tip {
+  background-color: #3b6e91;
+}
+
+.notif-icon.appointment {
+  background-color: #7048e8;
+}
+
+.notif-icon.alert {
+  background-color: #d97706;
+}
+
+.notif-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notif-content h2 {
+  font-size: 14px;
+  margin: 0 0 4px;
+  color: #16332a;
+}
+
+.notif-content p {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0 0 6px;
+}
+
+.notif-time {
+  font-size: 11px;
+  color: #a0aaa5;
+}
+
+.notif-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #1fa971;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.notif-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.notif-empty svg {
+  font-size: 36px;
+  color: #cfe0d8;
+  margin-bottom: 12px;
+}
+
+.notif-empty p {
+  font-size: 13.5px;
+  color: #8a9a92;
+  margin: 0;
+}
