@@ -1,117 +1,163 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {
+  FaPersonPregnant,
+  FaDroplet,
+  FaUsers,
+  FaVirus,
+  FaBrain,
+  FaAppleWhole,
+  FaPerson,
+  FaHandHoldingHeart,
+  FaBars,
+  FaMagnifyingGlass,
+  FaShieldHeart,
+} from "react-icons/fa6";
 
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import ModuleCard from "../../components/ModuleCard/ModuleCard";
-import FloatingAI from "../../components/FloatingAI/FloatingAI";
-import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
-
-import dashboardData from "./dashboardData";
+import Footer from "../../components/Footer/Footer";
 
 import "./Dashboard.css";
+import FloatingAssistant from "../../components/FloatingAssistant/FloatingAssistant";
+const modules = [
+  {
+    title: "Menstrual Health",
+    description: "Learn about menstrual health and track your cycle.",
+    icon: <FaDroplet />,
+    path: "/menstrual-health",
+  },
+  {
+    title: "Pregnancy & Maternal Care",
+    description:
+      "Learn about pregnancy, maternal care and pregnancy tracking.",
+    icon: <FaPersonPregnant />,
+     path: "/pregnancy-maternal-care",
+  },
+  {
+    title: "Family Planning",
+    description: "Learn about contraception, fertility and family planning.",
+    icon: <FaUsers />,
+   path: "/family-planning/learn",
+  },
+  {
+    title: "STI Prevention & Care",
+    description: "Learn about STI prevention, testing and treatment.",
+    icon: <FaVirus />,
+     path: "/sti-prevention-care",
+  },
+  {
+    title: "Mental Health",
+    description: "Learn about emotional wellbeing and mental health.",
+    icon: <FaBrain />,
+     path: "/mental-health",
+  },
+  {
+    title: "Nutrition",
+    description: "Learn about healthy eating and nutrition.",
+    icon: <FaAppleWhole />,
+   path: "/nutrition/learn",
+  },
+  {
+    title: "Adolescence & Puberty",
+    description: "Learn about puberty, relationships and personal wellbeing.",
+    icon: <FaPerson />,
+    path: "/adolescence-puberty/learn",  
+  },
+  {
+    title: "Services",
+    description: "Access consultation, support groups and emergency response.",
+    icon: <FaHandHoldingHeart />,
+    path: "/health-services",
+  },
+];
 
-function Dashboard() {
+const Dashboard = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-    const navigate = useNavigate();
+  return (
+    <div className="dashboard-page">
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [confirmOpen, setConfirmOpen] = useState(false);
+      <div className="dashboard-body">
+        <Header />
 
-    const username = localStorage.getItem("currentUser") || "Guest";
-
-    function handleLogoutConfirm() {
-        setConfirmOpen(true);
-    }
-
-    function handleLogout() {
-        localStorage.removeItem("currentUser");
-        setConfirmOpen(false);
-        setSidebarOpen(false);
-        navigate("/login");
-    }
-
-    return (
-
-        <div className="dashboard-page">
-
-            <Header
-                onMenuClick={() => setSidebarOpen(true)}
-                onNotificationClick={() => console.log("Notifications")}
-                onProfileClick={() => navigate("/settings")}
-            />
-
-            <Sidebar
-                isOpen={sidebarOpen}
-                onClose={() => setSidebarOpen(false)}
-                onLogout={handleLogoutConfirm}
-            />
-
-            <ConfirmModal
-                open={confirmOpen}
-                title="Confirm Logout"
-                message="Are you sure you want to log out?"
-                confirmText="Log Out"
-                cancelText="Stay Logged In"
-                danger={true}
-                onConfirm={handleLogout}
-                onCancel={() => setConfirmOpen(false)}
-            />
-
-            <main className="dashboard-content">
-
-                <section className="dashboard-welcome">
-
-                    <h2>
-
-                        Welcome 👋
-
-                    </h2>
-
-                    <p>
-
-                        {username}
-
-                    </p>
-
-                </section>
-
-                <SearchBar
-                    onClick={() => navigate("/health-services")}
-                />
-
-                {dashboardData.map((section) => (
-
-                    <section
-                        key={section.section}
-                        className="dashboard-section"
-                    >
-
-                        <h3 className="section-title">
-
-                            {section.section}
-
-                        </h3>
-
-                        <div className="module-list">
-                            {section.items.map((item) => (
-                                <ModuleCard
-                                    key={item.title}
-                                    title={item.title}
-                                    subtitle={item.subtitle}
-                                    onClick={() => navigate(item.route)}
-                                />
-                            ))}
-                        </div>
-
-                    </section>
-
-                ))}
-
-            </main>
-            <FloatingAI />
+        {/* Mobile-only bar to open the Sidebar drawer (Header's own menu
+            button opens its top-nav drawer instead — separate concerns) */}
+        <div className="dashboard-mobile-bar">
+          <button
+            type="button"
+            className="dashboard-menu-btn"
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Open dashboard menu"
+          >
+            <FaBars />
+          </button>
+          <span>Dashboard</span>
         </div>
-    );
-}
+
+        <main className="dashboard-main">
+          {/* Welcome */}
+          <section className="dashboard-welcome">
+            <div className="dashboard-welcome-text">
+              <span className="dashboard-eyebrow">Welcome to ValeCare</span>
+            
+              <p>
+                Access trusted sexual and reproductive health information
+                and services, all in one place.
+              </p>
+            </div>
+
+            <div className="dashboard-welcome-badge">
+              <FaShieldHeart />
+              <span>Confidential &amp; secure</span>
+            </div>
+          </section>
+
+          {/* Search */}
+          <div className="dashboard-search">
+            <FaMagnifyingGlass className="dashboard-search-icon" />
+            <input
+              type="text"
+              placeholder="Find the nearest health center"
+              aria-label="Find the nearest health center"
+            />
+          </div>
+
+          {/* Modules */}
+          <section className="dashboard-modules">
+            <div className="dashboard-modules-heading">
+              <h2>Browse by topic</h2>
+              <p>Choose an area to learn more or get support.</p>
+            </div>
+<FloatingAssistant />
+            <div className="dashboard-modules-grid">
+              {modules.map((module) => (
+                <Link
+                  key={module.title}
+                  to={module.path}
+                  className="dashboard-module-card"
+                >
+                  <div className="dashboard-module-icon">{module.icon}</div>
+
+                  <div className="dashboard-module-content">
+                    <h3>{module.title}</h3>
+                    <p>{module.description}</p>
+                  </div>
+
+                  <span className="dashboard-module-arrow">→</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          
+        </main>
+
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
 export default Dashboard;
+

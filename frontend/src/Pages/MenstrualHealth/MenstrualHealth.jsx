@@ -1,80 +1,66 @@
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-
-import FloatingAI from "../../components/FloatingAI/FloatingAI";
-
-import menstrualHealthData from "./menstrualHealth.js";
+import { Link } from "react-router-dom";
+import { FaBookOpen, FaCalendarDays } from "react-icons/fa6";
 
 import "./MenstrualHealth.css";
 
-function MenstrualHealth() {
+const sections = [
+  {
+    title: "Learn",
+    description:
+      "Understand periods, menstrual hygiene, common symptoms and self-care.",
+    icon: <FaBookOpen />,
+    path: "/menstrual-health/learn",
+  },
+  {
+    title: "Cycle Tracker",
+    description:
+      "Log your last period and cycle length to predict your next one.",
+    icon: <FaCalendarDays />,
+    path: "/menstrual-health/tracker",
+  },
+];
 
-    const navigate = useNavigate();
+const MenstrualHealth = () => {
+  return (
+    <div className="menstrual-hub-page">
 
-    return (
+      {/* Header */}
+      <div className="hub-header">
+        <Link to="/dashboard" className="back-button">
+          ←
+        </Link>
 
-        <div className="page">
-
-            <header className="module-header">
-
-                <button
-                    className="back-button"
-                    onClick={() => navigate("/dashboard")}
-                >
-                    <ArrowLeft size={20} />
-                </button>
-
-                <h2>Menstrual Health</h2>
-
-            </header>
-
-            <section className="module-intro">
-
-                <p>
-
-                    Learn about menstruation, menstrual hygiene and
-                    monitor your menstrual cycle using the tracker.
-
-                </p>
-
-            </section>
-
-            <section className="module-section">
-
-                <h3>Choose a topic</h3>
-
-                {menstrualHealthData.map((item) => (
-
-                    <button
-                        key={item.id}
-                        className="topic-card"
-                        onClick={() => navigate(item.route)}
-                    >
-
-                        <h4>
-
-                            {item.title}
-
-                        </h4>
-
-                        <p>
-
-                            {item.description}
-
-                        </p>
-
-                    </button>
-
-                ))}
-
-            </section>
-
-            <FloatingAI />
-
+        <div>
+          <h1>Menstrual Health</h1>
+          <p>
+            Everything you need to understand your cycle and take care of
+            yourself.
+          </p>
         </div>
+      </div>
 
-    );
+      {/* Section cards */}
+      <div className="hub-grid">
+        {sections.map((section) => (
+          <Link
+            key={section.title}
+            to={section.path}
+            className="hub-card"
+          >
+            <div className="hub-card-icon">{section.icon}</div>
 
-}
+            <div className="hub-card-content">
+              <h2>{section.title}</h2>
+              <p>{section.description}</p>
+            </div>
+
+            <span className="hub-card-arrow">→</span>
+          </Link>
+        ))}
+      </div>
+
+    </div>
+  );
+};
 
 export default MenstrualHealth;

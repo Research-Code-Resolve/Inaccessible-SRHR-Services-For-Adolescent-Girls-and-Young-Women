@@ -1,97 +1,129 @@
-import { ArrowLeft, CalendarDays } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
-import FloatingAI from "../../components/FloatingAI/FloatingAI";
-import consultationData from "./consultationData";
-
+import React from "react";
 import "./Consultation.css";
+import { Link } from "react-router-dom";
 
-function Consultation() {
+import {
+  consultationOptions,
+} from "./consultationData";
 
-    const navigate = useNavigate();
+const Consultation = () => {
+  return (
+    <div className="consultation-page">
 
-    return (
+      {/* Header */}
 
-        <div className="page">
+      <div className="page-header">
 
-            <header className="page-header">
+        <Link
+          to="/dashboard"
+          className="back-button"
+        >
+          ←
+        </Link>
 
-                <button
-                    className="back-button"
-                    onClick={() => navigate("/dashboard")}
+        <h1>Consultation</h1>
+
+      </div>
+
+      {/* Intro */}
+
+      <div className="consultation-intro">
+
+        <h2>
+          Need medical assistance?
+        </h2>
+
+        <p>
+          Choose a consultation service
+          below to connect with a healthcare
+          provider.
+        </p>
+
+      </div>
+
+      {/* Services */}
+
+      <section className="consultation-section">
+
+        <h3>Consultation Services</h3>
+
+        <div className="consultation-grid">
+
+          {consultationOptions.map((item) => {
+
+            const Icon = item.icon;
+
+            return (
+
+              <Link
+                key={item.id}
+                to={item.disabled ? "#" : item.path}
+                className={`consultation-card ${
+                  item.disabled ? "disabled" : ""
+                }`}
+              >
+
+                <div
+                  className="consultation-icon"
+                  style={{
+                    background: item.background,
+                    color: item.color,
+                  }}
                 >
-                    <ArrowLeft size={20} />
-                </button>
+                  <Icon />
+                </div>
 
-                <h2>Consultation</h2>
+                <div>
 
-            </header>
+                  <h4>{item.title}</h4>
 
-            <section className="consultation-intro">
+                  <p>{item.description}</p>
 
-                <CalendarDays
-                    size={50}
-                    className="consultation-icon"
-                />
+                  {item.disabled && (
+                    <span className="coming-soon">
+                      Coming Soon
+                    </span>
+                  )}
 
-                <h3>Talk to a Healthcare Professional</h3>
+                </div>
 
-                <p>
+              </Link>
 
-                    Choose the type of consultation you need.
-                    Our goal is to connect you with the most
-                    appropriate healthcare support.
+            );
 
-                </p>
-
-            </section>
-
-            <section className="consultation-list">
-
-                {
-
-                    consultationData.map((item) => (
-
-                        <button
-
-                            key={item.id}
-
-                            className="consultation-card"
-
-                            onClick={() => navigate(item.route)}
-
-                        >
-
-                            <h4>{item.title}</h4>
-
-                            <p>{item.description}</p>
-
-                        </button>
-
-                    ))
-
-                }
-
-            </section>
-
-            <button
-
-                className="primary-button"
-
-                onClick={() => navigate("/book-appointment")}
-
-            >
-
-                Book Consultation
-
-            </button>
-
-            <FloatingAI />
+          })}
 
         </div>
 
-    );
+      </section>
 
-}
+      {/* Upcoming Appointment */}
+
+      <section className="appointment-section">
+
+        <h3>
+          Upcoming Appointment
+        </h3>
+
+        <div className="empty-card">
+
+          <p>
+            You don't have any upcoming appointments.
+          </p>
+
+          <Link
+            to="/consultation/book"
+            className="book-now"
+          >
+            Book Appointment
+          </Link>
+
+        </div>
+
+      </section>
+
+    </div>
+  );
+};
 
 export default Consultation;

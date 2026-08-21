@@ -1,136 +1,125 @@
-import "./Sidebar.css";
+import { useState } from "react";
+import "../../pages/Dashboard/Dashboard.css"; // shared shell stylesheet — see file for sidebar/header/footer/dashboard styles
+import { NavLink, useLocation } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa6";
+import Logo from "../Logo/Logo";
+import { menuItems } from "./sidebarData";
+import { useAuth } from "../../context/AuthContext";
 
-import { useNavigate } from "react-router-dom";
+const Sidebar = ({ isOpen, onClose }) => {
+  const location = useLocation();
+  const { isAuthenticated } = useAuth();
 
-import {
-    X,
-    Settings,
-    BookOpen,
-    Bot,
-    CircleHelp,
-    Shield,
-    Languages,
-    LogOut,
-    Trash2
-} from "lucide-react";
+  // Only show items that either don't require auth, or the user is
+  // logged in for. Guests never see Notifications/Profile/Settings/Logout.
+  const visibleItems = menuItems.filter(
+    (item) => !item.authOnly || isAuthenticated
+  );
 
-function Sidebar({ isOpen, onClose }) {
+  // Tracks which expandable sections are open, keyed by item.id.
+  // A section auto-opens if the current route matches one of its children.
+  const [openSections, setOpenSections] = useState(() => {
+    const initial = {};
+    visibleItems.forEach((item) => {
+      if (item.children) {
+        initial[item.id] = item.children.some(
+          (child) => child.path === location.pathname
+        );
+      }
+    });
+    return initial;
+  });
 
-    const navigate = useNavigate();
+  const toggleSection = (id) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
-    if (!isOpen) return null;
+  return (
+    <>
+      {isOpen && <div className="sidebar-overlay" onClick={onClose} />}
 
-    return (
-
-        <div className="sidebar-overlay">
-
-            <aside className="sidebar">
-
-                <div className="sidebar-header">
-
-                    <h2>ValeCare</h2>
-
-                    <button
-                        className="close-btn"
-                        onClick={onClose}
-                    >
-                        <X size={22} />
-                    </button>
-
-                </div>
-
-                <button
-                    className="sidebar-item"
-                    onClick={() => navigate("/settings")}
-                >
-                    <Settings size={20} />
-
-                    <span>Account Settings</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item"
-                    onClick={() => navigate("/continue-learning")}
-                >
-                    <BookOpen size={20} />
-
-                    <span>Continue Learning</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item"
-                    onClick={() => navigate("/ai-assistant")}
-                >
-                    <Bot size={20} />
-
-                    <span>AI Assistant</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item"
-                    onClick={() => navigate("/faqs")}
-                >
-                    <CircleHelp size={20} />
-
-                    <span>FAQs</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item"
-                    onClick={() => navigate("/privacy-policy")}
-                >
-                    <Shield size={20} />
-
-                    <span>Privacy Policy</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item"
-                    onClick={() => navigate("/language")}
-                >
-                    <Languages size={20} />
-
-                    <span>Language</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item"
-                    onClick={onLogout}
-                >
-                    <LogOut size={20} />
-
-                    <span>Log Out</span>
-
-                </button>
-
-                <button
-                    className="sidebar-item delete-item"
-                    onClick={() => navigate("/delete-account")}
-                >
-                    <Trash2 size={20} />
-
-                    <span>Delete Account</span>
-
-                </button>
-
-                <div className="sidebar-footer">
-
-                    Version 1.0
-
-                </div>
-
-            </aside>
-
+      <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+        <div className="sidebar-header">
+          <Logo size="small" showTagline={false} />
         </div>
 
-    );
+        <nav className="sidebar-nav">
+          {visibleItems.map((item) => {
+            const Icon = item.icon;
 
-}
+            // Item with sub-items (e.g. "Tracker" -> Menstrual / Pregnancy)
+            if (item.children && item.children.length > 0) {
+              const isSectionOpen = openSections[item.id];
+              const hasActiveChild = item.children.some(
+                (child) => child.path === location.pathname
+              );
+
+              return (
+                <div className="sidebar-group" key={item.id}>
+                  <button
+                    type="button"
+                    className={`sidebar-link sidebar-group-toggle ${
+                      hasActiveChild ? "active" : ""
+                    }`}
+                    onClick={() => toggleSection(item.id)}
+                    aria-expanded={isSectionOpen}
+                  >
+                    <Icon />
+                    <span>{item.title}</span>
+                    <FaChevronDown
+                      className={`sidebar-chevron ${
+                        isSectionOpen ? "is-open" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <div
+                    className={`sidebar-submenu ${
+                      isSectionOpen ? "is-open" : ""
+                    }`}
+                  >
+                    {item.children.map((child) => (
+                      <NavLink
+                        key={child.id}
+                        to={child.path}
+                        className={({ isActive }) =>
+                          isActive
+                            ? "sidebar-sublink active"
+                            : "sidebar-sublink"
+                        }
+                        onClick={onClose}
+                      >
+                        <span className="sidebar-sublink-dot" />
+                        <span className="sidebar-sublink-label">{child.title}</span>
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            // Regular flat item
+            return (
+              <NavLink
+                key={item.id}
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive ? "sidebar-link active" : "sidebar-link"
+                }
+                onClick={onClose}
+              >
+                <Icon />
+                <span>{item.title}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
+      </aside>
+    </>
+  );
+};
 
 export default Sidebar;

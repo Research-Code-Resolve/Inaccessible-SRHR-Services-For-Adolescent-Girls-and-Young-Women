@@ -1,49 +1,260 @@
-.register-page{
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap");
 
-    display:flex;
+.register-page {
+  --clr-bg: #f6f4ef;
+  --clr-surface: #ffffff;
+  --clr-border: #e3dfd5;
+  --clr-primary: #163832;
+  --clr-primary-light: #2f6358;
+  --clr-primary-dark: #0e2622;
+  --clr-accent: #c68a3a;
+  --clr-accent-dark: #a9722c;
+  --clr-text: #1e2422;
+  --clr-muted: #5c6863;
+  --clr-error: #b3453b;
 
-    flex-direction:column;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
-    justify-content:space-between;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-md: 0 20px 48px -18px rgba(14, 38, 34, 0.28);
 
-    min-height:100vh;
-
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: var(--clr-bg);
+  background-image: radial-gradient(
+      circle at 12% 12%,
+      rgba(22, 56, 50, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(circle at 90% 85%, rgba(198, 138, 58, 0.08), transparent 45%);
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  -webkit-font-smoothing: antialiased;
 }
 
-.page-description{
-
-    margin-bottom:25px;
-
+.register-page * {
+  box-sizing: border-box;
 }
 
-.register-footer{
-
-    margin-top:30px;
-
+.register-container {
+  width: 100%;
+  max-width: 460px;
 }
 
-.register-footer p{
-
-    text-align:center;
-
-    margin-top:20px;
-
+.register-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 40px 36px;
 }
 
-.register-footer span{
-
-    color:var(--primary-color);
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    margin-left:6px;
-
+.register-header {
+  text-align: center;
+  margin-bottom: 28px;
 }
 
-.register-footer span:hover{
+.register-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--clr-primary-dark);
+  text-decoration: none;
+}
 
-    text-decoration:underline;
+.register-brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--clr-primary);
+  color: #fff;
+  font-size: 13px;
+}
 
+.register-header h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--clr-primary-dark);
+}
+
+.register-header p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--clr-muted);
+}
+
+/* Form */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.form-field input {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--clr-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-field input::placeholder {
+  color: #9aa39f;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--clr-primary-light);
+  box-shadow: 0 0 0 3px rgba(47, 99, 88, 0.14);
+  background: var(--clr-surface);
+}
+
+.form-field input[aria-invalid="true"] {
+  border-color: var(--clr-error);
+}
+
+.field-error {
+  font-size: 12.5px;
+  color: var(--clr-error);
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--clr-muted);
+  cursor: pointer;
+}
+
+.form-checkbox input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--clr-primary);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.form-checkbox a {
+  color: var(--clr-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-checkbox a:hover {
+  text-decoration: underline;
+}
+
+.form-error-banner {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(179, 69, 59, 0.08);
+  border: 1px solid rgba(179, 69, 59, 0.25);
+  color: var(--clr-error);
+  font-size: 13px;
+}
+
+.register-submit {
+  margin-top: 4px;
+  padding: 13px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--clr-primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+
+.register-submit:hover:not(:disabled) {
+  background: var(--clr-primary-light);
+  transform: translateY(-1px);
+}
+
+.register-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.register-submit:focus-visible {
+  outline: 2px solid var(--clr-accent-dark);
+  outline-offset: 3px;
+}
+
+.register-signin-text,
+.register-guest-text {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--clr-muted);
+}
+
+.register-guest-text {
+  margin-top: 8px;
+}
+
+.register-signin-text a,
+.register-guest-text a {
+  color: var(--clr-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-signin-text a:hover,
+.register-guest-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 32px 22px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,70 +1,110 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import languages from "./Language.js";
 import "./Language.css";
+import { languages } from "./languageData";
 
-function Language() {
+const Language = () => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
 
-    const handleContinue = () => {
+  const handleContinue = () => {
 
-        localStorage.setItem("language", selectedLanguage);
+    // Save selected language
 
-        navigate("/welcome");
+    localStorage.setItem(
+      "language",
+      selectedLanguage
+    );
 
-    };
+    // Go back to previous page
 
-    return (
+    navigate(-1);
 
-        <div className="language-page">
+  };
 
-            <div className="language-header">
+  return (
 
-                <h1>Select Language</h1>
+    <div className="language-page">
 
-                <p>
-                    Choose your preferred language.
-                    You can change it later in Settings.
-                </p>
+      <div className="language-card">
 
-            </div>
+        <h1>
+          🌍 Choose Your Language
+        </h1>
 
-            <div className="language-list">
+        <p>
 
-                {languages.map((language) => (
+          Select the language you would like to use throughout ValeCare.
 
-                    <button
-                        key={language}
-                        type="button"
-                        className={
-                            selectedLanguage === language
-                                ? "language-btn active"
-                                : "language-btn"
-                        }
-                        onClick={() => setSelectedLanguage(language)}
-                    >
-                        {language}
-                    </button>
+          You can always change it later from Settings.
 
-                ))}
+        </p>
 
-            </div>
+        <div className="language-list">
 
-            <div className="language-footer">
+          {languages.map((language) => (
 
-                <button onClick={handleContinue}>
-                    Continue
-                </button>
+            <label
+              key={language.id}
+              className={`language-item ${
+                selectedLanguage === language.name
+                  ? "active"
+                  : ""
+              }`}
+            >
 
-            </div>
+              <input
+                type="radio"
+                value={language.name}
+                checked={
+                  selectedLanguage ===
+                  language.name
+                }
+                onChange={(e) =>
+                  setSelectedLanguage(
+                    e.target.value
+                  )
+                }
+              />
+
+              <span className="flag">
+
+                {language.flag}
+
+              </span>
+
+              <div>
+
+                <h3>{language.name}</h3>
+
+                <small>
+                  {language.native}
+                </small>
+
+              </div>
+
+            </label>
+
+          ))}
 
         </div>
 
-    );
+        <button
+          className="continue-btn"
+          onClick={handleContinue}
+        >
 
-}
+          Continue
+
+        </button>
+
+      </div>
+
+    </div>
+
+  );
+};
 
 export default Language;

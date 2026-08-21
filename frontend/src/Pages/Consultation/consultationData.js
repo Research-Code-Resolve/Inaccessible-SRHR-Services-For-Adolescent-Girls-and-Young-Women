@@ -1,40 +1,66 @@
-const consultationData = [
+import {
+  FaCalendarCheck,
+  FaComments,
+  FaVideo,
+  FaHistory,
+  FaPills,
+  FaFileMedical,
+} from "react-icons/fa";
 
-    {
-        id: 1,
-        title: "General SRHR Consultation",
-        description: "Speak with a healthcare professional about sexual and reproductive health.",
-        route: "/consultation/general"
-    },
-
-    {
-        id: 2,
-        title: "Maternal Health",
-        description: "Pregnancy, antenatal care and postnatal support.",
-        route: "/consultation/maternal"
-    },
-
-    {
-        id: 3,
-        title: "Family Planning",
-        description: "Receive guidance on family planning methods and options.",
-        route: "/consultation/family-planning"
-    },
-
-    {
-        id: 4,
-        title: "STI & HIV",
-        description: "Get confidential advice on testing, treatment and prevention.",
-        route: "/consultation/sti-hiv"
-    },
-
-    {
-        id: 5,
-        title: "Adolescent Health",
-        description: "Support for puberty, menstrual health and adolescent wellbeing.",
-        route: "/consultation/adolescent"
-    }
-
+export const consultationOptions = [
+  {
+    id: 1,
+    title: "Book Appointment",
+    description: "Schedule an appointment with a healthcare provider.",
+    icon: FaCalendarCheck,
+    path: "/consultation/book",
+    color: "#0B6E4F",
+    background: "#EAF7F1",
+  },
+  {
+    id: 2,
+    title: "Chat with Health Provider",
+    description: "Send secure messages to a healthcare provider.",
+    icon: FaComments,
+    path: "/consultation/chat",
+    color: "#1976D2",
+    background: "#EAF3FD",
+  },
+  {
+    id: 3,
+    title: "Video Consultation",
+    description: "Connect with a provider through a video call.",
+    icon: FaVideo,
+    path: "/consultation/video",
+    color: "#8E24AA",
+    background: "#F3E8FD",
+  },
+  {
+    id: 4,
+    title: "Consultation History",
+    description: "Review your previous consultations.",
+    icon: FaHistory,
+    path: "/consultation/history",
+    color: "#FB8C00",
+    background: "#FFF4E5",
+  },
+  {
+    id: 5,
+    title: "Medication Review",
+    description: "Ask questions about your medicines.",
+    icon: FaPills,
+    path: "/consultation/medication",
+    color: "#E91E63",
+    background: "#FDEAF2",
+  },
+  {
+    id: 6,
+    title: "Lab Results",
+    description: "View laboratory results (coming soon).",
+    icon: FaFileMedical,
+    path: "/consultation/lab-results",
+    color: "#546E7A",
+    background: "#ECEFF1",
+    disabled: true,
+  },
 ];
-
-export default consultationData;

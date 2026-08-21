@@ -1,16 +1,45 @@
-# React + Vite
+# ValeCare — Beginner-friendly site
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A small React + Vite app adapted to be easy for beginners to read and extend.
 
-Currently, two official plugins are available:
+Quick start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Install dependencies
 
-## React Compiler
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Run the dev server
 
-## Expanding the Oxlint configuration
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+3. Build for production
+
+```bash
+npm run build
+```
+
+What this version includes
+
+- Simple mock authentication using `localStorage` (`src/context/AuthContext.jsx`).
+- Protected routes that redirect to `/login` when not authenticated (`RequireAuth`).
+- A beginner-friendly `Health Services` page with service cards and simple detail pages.
+- Basic client-side validation on `Login` and `Register` forms.
+- Small CSS utility classes in `src/styles/global.css` to make layout easier.
+
+Where to start editing
+
+- `src/pages/HealthServices/HealthServices.jsx` — list of service categories.
+- `src/pages/HealthServices/ServiceDetail.jsx` — simple details for each service.
+- `src/pages/Login` and `src/pages/Register` — forms with validation.
+- `src/components/Header/Header.jsx` and `src/components/Footer/Footer.jsx` — site chrome.
+
+If you want, I can:
+- Add a simple contact form or providers list for a service.
+- Improve accessibility or add tests.
+- Wire a mock API to fetch providers.
+
+Ask which small feature you'd like next.

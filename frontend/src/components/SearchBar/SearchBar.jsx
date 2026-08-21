@@ -1,27 +1,26 @@
 import "./SearchBar.css";
-import { Search } from "lucide-react";
+import { FaSearch } from "react-icons/fa";
 
-function SearchBar({ onClick }) {
+const SearchBar = ({
+  placeholder = "Search...",
+  value,
+  onChange,
+}) => {
+  return (
+    <div className="search-bar">
 
-    return (
+      <FaSearch className="search-icon" />
 
-        <button
-            className="search-box"
-            onClick={onClick}
-        >
+      <input
+        type="text"
+        className="search-input"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
 
-            <Search size={18} />
-
-            <span>
-
-                Find the nearest health center
-
-            </span>
-
-        </button>
-
-    );
-
-}
+    </div>
+  );
+};
 
 export default SearchBar;
