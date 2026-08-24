@@ -1,111 +1,142 @@
-# SRHR Platform - Healthcare Provider Directory API
+# ValeCare Backend
 
-This repository contains the backend implementation for **WG Assignment 1 (Backend Engineering Track)**[cite: 2]. Built using **Django** and **Django REST Framework (DRF)**, this service exposes a CRUD API for managing and querying healthcare providers tailored to adolescent sexual and reproductive health and rights (SRHR) requirements[cite: 1, 2].
+**Django REST Framework API** powering ValeCare, a privacy-first SRHR platform for adolescent girls and young women (AGYW). Built for WG Assignment 1 (Backend Engineering Track).
 
----
+## Overview
 
-## 📋 Assignment Questions Breakdown
+The backend is organized as a set of small Django apps, each covering one stage of the AGYW user journey identified in our research: from anonymous triage, through information and support, to follow-up, appointments, tracking, and emergency response. A verified provider directory underpins several of these stages.
 
-### 1. What is the one resource your project absolutely cannot function without tracking?
-**Healthcare Providers (`Providers`)**.  
-In Stage 3 ("Getting Support") of the SRHR user journey, young women and girls require safe, trusted, and verified care providers. Without tracking vetted healthcare providers, the application cannot bridge the gap between initial awareness/triage and real-world clinical or supportive care.
+## Design Principles
 
-### 2. What fields does that resource need?
-Extracted directly from user research and requirements:
-* `name` *(CharField)*: Provider or clinic name.
-* `gender` *(CharField)*: Gender of the provider (critical for users seeking female care)[cite: 1].
-* `location` *(CharField)*: Physical location or community name[cite: 1].
-* `distance_km` *(FloatField)*: Proximity measure for rural or remote users[cite: 1].
-* `faith_sensitive` *(BooleanField)*: Flag indicating faith-sensitive care practices[cite: 1].
-* `rating` *(FloatField)*: Aggregate non-judgmental rating score[cite: 1].
+- **No mandatory login.** Every client is issued an anonymous device token on first request. All core features work without a username or password.
+- **Optional accounts.** Users may register to persist data (bookmarks, reading progress, tracker history) across sessions. Guest data is wiped when a session ends; registered accounts persist until the user deletes them.
+- **Two-step account deletion**, requiring explicit confirmation before any user data is permanently removed.
+- **No age-based content gating.** Content filtering by age tier was removed from the design; all age-appropriate content is available to all users.
 
-### 3. Who are the different types of users touching this resource, and do they need different access/permissions?
-* **End-Users (e.g., young adults, pastoralist youth):** Need anonymous/pseudonymous **Read-Only** access to search and filter providers without revealing their identities or logging in[cite: 1].
-* **System Administrators / Content Moderators:** Need **Full CRUD Access** (Create, Read, Update, Delete) to vet, moderate, and maintain accurate provider listings as part of the verification pipeline[cite: 1].
+## Apps
 
-### 4. What is the single most important action a user takes on this resource?
-**Searching and filtering the directory** by trust attributes (such as provider gender and faith sensitivity)[cite: 1]. This directly eliminates fears of judgment and community exposure[cite: 1].
+| App | Owner | Purpose |
+|---|---|---|
+| `accounts` | Joy Bett | Optional user registration (username + passphrase), guest sessions, one-time recovery codes, two-step account deletion. |
+| `triage` | Joy Bett | Routes users to the right information or service based on their initial query (Stage 1 of the user journey: awareness). |
+| `support` | Joy Bett | Anonymous Q&A and support content — lets users ask sensitive questions without exposure risk. |
+| `followup` | Joy Bett | Tracks and manages follow-up actions/reminders after a user engages with triage or support. |
+| `appointments` | Denis Njoroge | Booking and management of appointments with verified providers. |
+| `tracker` | Denis Njoroge | Menstrual cycle and pregnancy logging, tied to registered accounts. |
+| `emergency` | Denis Njoroge | Emergency information and rapid-access resources. |
+| `providers` | Denis Njoroge | CRUD API for the verified healthcare provider directory (detailed below). |
+| `education` | Denis Njoroge | Age-appropriate SRHR content in English, French, Portuguese, and 14 African languages. |
+| `config` | — | Django project settings and root URL configuration (not a feature app). |
 
----
+## Providers App — Detail
 
-## 🛠️ Tech Stack
-* **Framework:** Python 3.13 / Django 5.x
-* **API Engine:** Django REST Framework (DRF)
-* **Authentication:** Basic Authentication (`rest_framework.authentication.BasicAuthentication`)
-* **Database:** SQLite (default development database)
+### Why this resource
 
----
+In Stage 3 ("Getting Support") of the SRHR user journey, users need safe, trusted, verified care providers. Without tracking vetted healthcare providers, the app cannot bridge the gap between initial awareness/triage and real-world clinical or supportive care.
 
-## 🚀 Setup & Installation Guide
+### Fields
 
-Follow these steps to get the API running locally.
+| Field | Type | Purpose |
+|---|---|---|
+| `name` | CharField | Provider or clinic name |
+| `gender` | CharField | Gender of the provider (important for users seeking female care) |
+| `location` | CharField | Physical location or community name |
+| `distance_km` | FloatField | Proximity measure for remote users |
+| `faith_sensitive` | BooleanField | Flags faith-sensitive care practices |
+| `rating` | FloatField | Aggregate non-judgmental rating score |
 
-### Step 1: Clone and Navigate to the Repository
-Open your terminal/command prompt and clone the project repository, then enter the directory:
+### Access & Permissions
 
-Bash
-**git clone <your-repository-url>**
-**cd <your-repository-folder>**
+- **End users** (anonymous or registered): read-only access to search and filter the directory without revealing their identity.
+- **System administrators / content moderators**: full CRUD access, used to vet, moderate, and maintain accurate provider listings as part of the verification pipeline. Authenticated via Django's Basic Authentication — this is separate from, and does not replace, the anonymous device-token flow end users use for the rest of the app.
 
-### Step 2: Set Up a Virtual Environment
-Isolate your Python dependencies by creating a virtual environment.
+### Key user action
 
-On Windows (Command Prompt / PowerShell):
+Searching and filtering the directory by trust attributes (e.g., provider gender, faith sensitivity) — this directly reduces fear of judgment and community exposure.
 
- PowerShell
-    **python -m venv venv**
-    **.\venv\Scripts\***
+## Tech Stack
 
-On macOS / Linux:
+- **Framework:** Python 3.13 / Django 5.x
+- **API:** Django REST Framework (DRF)
+- **Auth:** Anonymous device tokens (end users) + Basic Authentication (admin/moderator access to `providers`)
+- **Database:** SQLite (development)
 
-Bash
-    **python -m venv venv**
-    **source venv/bin/activate**
+## Setup & Installation
 
+### 1. Clone the repository
 
-### Step 3: Install Project Dependencies
-Install Django and Django REST Framework inside your activated virtual environment:
+```bash
+git clone https://github.com/Research-Code-Resolve/Inaccessible-SRHR-Services-For-Adolescent-Girls-and-Young-Women.git
+cd Inaccessible-SRHR-Services-For-Adolescent-Girls-and-Young-Women/backend
+```
 
-Bash
-    **pip install django djangorestframework**
+### 2. Set up a virtual environment
 
-### Step 4: Run Database Migrations
-Prepare your database schema by running Django migrations:
+**Windows (PowerShell):**
+```powershell
+python -m venv venv
+.\venv\Scripts\activate
+```
 
-Bash
-    **python manage.py makemigrations**
-    **python manage.py migrate**
+**macOS / Linux:**
+```bash
+python -m venv venv
+source venv/bin/activate
+```
 
-### Step 5: Create a Superuser (Admin Account)
-To test protected endpoints (POST, PUT, DELETE) and access the Django Admin interface, create an admin user:
+### 3. Install dependencies
 
-Bash
-    **python manage.py createsuperuser**
-Follow the prompts to enter a username, email, and password.
+```bash
+pip install -r requirements.txt
+```
 
-### Step 6: Start the Development Server
-Launch the Django local development server:
+### 4. Run database migrations
 
-Bash
-    **python manage.py runserver**
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
 
-Once running, you will see output like this:
+### 5. Create a superuser (admin account)
 
-Plaintext
-Starting development server at [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
-Quit the server with CTRL-BREAK.
+```bash
+python manage.py createsuperuser
+```
+Follow the prompts to set a username, email, and password. This account is used to access protected endpoints (POST, PUT, DELETE) and the Django Admin interface.
 
-### Step 7: Access and Test the Application
-Now open your web browser or API client (Postman/cURL):
+### 6. Start the development server
 
-Django REST Framework Browsable API (Public):
+```bash
+python manage.py runserver
+```
 
-URL: http://127.0.0.1:8000/api/providers/
+You should see:
+```
+Starting development server at http://127.0.0.1:8000/
+```
 
-Actions: View provider listings or apply filters (e.g., http://127.0.0.1:8000/api/providers/?gender=Female).
+### 7. Access and test the API
 
-Django Admin Interface:
+- **Browsable API (providers):** `http://127.0.0.1:8000/api/providers/`
+  Apply filters, e.g. `http://127.0.0.1:8000/api/providers/?gender=Female`
+- **Django Admin:** `http://127.0.0.1:8000/admin/` — log in with your superuser credentials to manage provider records directly.
+- **Other app endpoints:** [add base paths for triage, support, followup, appointments, tracker, emergency — confirm against `urls.py`]
 
-URL: http://127.0.0.1:8000/admin/
+## Project Structure
 
-Actions: Log in with your superuser credentials created in Step 5 to manually create, edit, or delete provider records.
+```
+backend/
+├── accounts/
+├── appointments/
+├── config/
+├── education/
+├── emergency/
+├── followup/
+├── providers/
+├── support/
+├── tracker/
+├── triage/
+├── manage.py
+├── requirements.txt
+└── README.md
+```
