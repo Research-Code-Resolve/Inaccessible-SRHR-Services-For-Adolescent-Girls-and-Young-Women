@@ -1,45 +1,104 @@
-# ValeCare — Beginner-friendly site
+# ValeCare Frontend
 
-A small React + Vite app adapted to be easy for beginners to read and extend.
+React + Vite Progressive Web App (PWA) for ValeCare — a privacy-first SRHR information and service-finder platform for adolescent girls and young women (AGYW) in Nairobi.
 
-Quick start
+## Overview
 
-1. Install dependencies
+This is the user-facing client for ValeCare. It talks to the [Django REST Framework backend](../backend/README.md) and is built as an installable, mobile-first PWA so it works well on the low-end Android devices common among the target users, with minimal data usage and a discreet, non-stigmatizing interface.
+
+## Key Features
+
+- **No login required.** The app works immediately using an anonymous device token issued on first launch — no username or password.
+- **Optional account creation.** Users can register to keep bookmarks, reading progress, and tracker history across sessions and devices. Guest sessions leave nothing behind when closed.
+- **Anonymous Q&A / support access**, tied to the `support` and `triage` backend apps.
+- **Menstrual cycle and pregnancy tracker**, tied to the `tracker` backend app (registered accounts only).
+- **Verified provider directory & search**, with filtering by gender, faith-sensitivity, distance, and rating.
+- **Appointment booking**, tied to the `appointments` backend app.
+- **Emergency information**, quick access to urgent resources via the `emergency` backend app.
+- **Two-step account deletion** for users who need to remove their data.
+- **Discreet, mobile-first design** — no content or notifications that would reveal app purpose if seen by others.
+
+## Tech Stack
+
+- **Framework:** React (Vite)
+- **Build tool:** Vite, with HMR (Hot Module Replacement)
+- **Linting:** Oxlint
+- **Plugin:** [`@vitejs/plugin-react`](https://github.com/vitejs/vite-plugin-react) or [`@vitejs/plugin-react-swc`](https://github.com/vitejs/vite-plugin-react-swc) — confirm which is in use via `vite.config.js`
+
+## Setup & Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Research-Code-Resolve/Inaccessible-SRHR-Services-For-Adolescent-Girls-and-Young-Women.git
+cd Inaccessible-SRHR-Services-For-Adolescent-Girls-and-Young-Women/frontend
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-2. Run the dev server
+### 3. Configure environment variables
+
+Create a `.env` file in `frontend/` with the backend API base URL:
+
+```
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+*(Confirm the exact variable name against your codebase — Vite requires the `VITE_` prefix for any env variable exposed to client code.)*
+
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-3. Build for production
+The app will be available at `http://localhost:5173` by default.
+
+### 5. Build for production
 
 ```bash
 npm run build
 ```
 
-What this version includes
+Output is generated in the `dist/` folder.
 
-- Simple mock authentication using `localStorage` (`src/context/AuthContext.jsx`).
-- Protected routes that redirect to `/login` when not authenticated (`RequireAuth`).
-- A beginner-friendly `Health Services` page with service cards and simple detail pages.
-- Basic client-side validation on `Login` and `Register` forms.
-- Small CSS utility classes in `src/styles/global.css` to make layout easier.
+## Project Structure
 
-Where to start editing
+```
+frontend/
+├── public/
+│   ├── favicon.svg
+│   └── icons.svg
+├── src/
+│   ├── ModuleBar/
+│   ├── Pages/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── layout/
+│   ├── styles/
+│   ├── theme/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── index.css
+│   └── ValecareFrontendOverview.md
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+```
 
-- `src/pages/HealthServices/HealthServices.jsx` — list of service categories.
-- `src/pages/HealthServices/ServiceDetail.jsx` — simple details for each service.
-- `src/pages/Login` and `src/pages/Register` — forms with validation.
-- `src/components/Header/Header.jsx` and `src/components/Footer/Footer.jsx` — site chrome.
+See `src/ValecareFrontendOverview.md` for a more detailed breakdown of the frontend architecture.
 
-If you want, I can:
-- Add a simple contact form or providers list for a service.
-- Improve accessibility or add tests.
-- Wire a mock API to fetch providers.
+## How It Connects to the Backend
 
-Ask which small feature you'd like next.
+The frontend communicates with the Django REST Framework API documented in [`backend/README.md`](../backend/README.md). On first load, the app requests an anonymous device token, which is then sent with subsequent requests to identify the session without requiring personal information. Registered-user flows exchange this for authenticated requests once a user opts to create an account.
+
+## Notes
+
+- This app does not currently use the React Compiler, due to its dev/build performance cost. See [the React Compiler docs](https://react.dev/learn/react-compiler) if this changes.
+- For production applications, TypeScript with type-aware lint rules is recommended; see the [Vite TS template](https://vite.dev) for integration guidance.
