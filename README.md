@@ -2,6 +2,10 @@
 
 A privacy-first Progressive Web App providing sexual and reproductive health and rights (SRHR) information and services to adolescent girls and young women (AGYW) in Nairobi's informal settlements.
 
+## Demo
+
+**[Watch the ValeCare walkthrough →](https://www.loom.com/share/0d0e26f0a3764422bb2bc1988106cc96)**
+
 ## Problem 4: Inaccessible SRHR Services for Adolescent Girls and Young Women (AGYW)
 
 ### The Problem
@@ -45,13 +49,14 @@ ValeCare turns the above findings into a working product. Core design principles
 | Frontend | React + Vite (PWA) |
 | Backend | Django + Django REST Framework |
 | Database | SQLite (development) |
+| Data/ML | pandas, numpy, matplotlib, seaborn |
 
 ## Repo Structure
 
 ```
 /backend   - API and business logic (see backend/README.md)
 /frontend  - user-facing app (see frontend/README.md)
-/data-ml   - any data/ML components
+/data-ml   - fieldwork dataset, coding, and charts (see data-ml/README.md)
 /docs      - research (literature review, methodology, interview guides) and planning docs
 ```
 
@@ -59,20 +64,35 @@ ValeCare turns the above findings into a working product. Core design principles
 
 - Backend setup: see [`backend/README.md`](./backend/README.md)
 - Frontend setup: see [`frontend/README.md`](./frontend/README.md)
+- Data and analysis: see [`data-ml/README.md`](./data-ml/README.md)
 
 ## Research
 
-See `docs/` for the full qualitative research paper this problem statement is drawn from, including methodology, interview guides, and findings.
+See `docs/` for the full qualitative research paper this problem statement is drawn from, including methodology, interview guides, and findings. The research team and chapter authorship are listed inside the paper itself.
+
+| Document | What it is |
+|---|---|
+| [`Combined_Research_Paper_WG4_Revised.pdf`](./docs/Combined_Research_Paper_WG4_Revised.pdf) | The full paper — introduction, literature review, methodology, findings, discussion, conclusion |
+| [`Research_Paper_Early_Draft.pdf`](./docs/Research_Paper_Early_Draft.pdf) | Earlier draft, kept for provenance |
+| [`FGD_Report.pdf`](./docs/FGD_Report.pdf) | Focus group discussion report |
+| [`Interview_Guides.pdf`](./docs/Interview_Guides.pdf) | The interview and focus group instruments |
+| [`ValeCare_Software_Requirements_Specification.pdf`](./docs/ValeCare_Software_Requirements_Specification.pdf) | Software requirements specification |
+| [`SRHR_Backend_Features_Django__1_.pdf`](./docs/SRHR_Backend_Features_Django__1_.pdf) | Backend features and data models |
+| [`SRHR_App_Frontend_Features_Specification__1_.pdf`](./docs/SRHR_App_Frontend_Features_Specification__1_.pdf) | Frontend features specification |
 
 ## Team
 
 Built for the RCA Fellows Social Innovation Bootcamp 2026, Working Group 4.
 
-- Joy Bett
-- Denis Njoroge
-- Collins Bebeth
-- Lvy Oguye
 - Abubakar Diallo
+- Collins Bebeth
+- Denis Njoroge
+- Joy Bett
+- Lvy Oguye
+
+## License
+
+MIT — see [`LICENSE`](./LICENSE).
 
 ## Acknowledgments
 
